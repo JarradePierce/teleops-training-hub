@@ -6,3 +6,78 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id        Int            @id @default(autoincrement())
+  username  String         @unique
+  role      UserRole       @default(STUDENT)
+  audits    Audit[]
+  trainings UserTraining[]
+}
+
+enum UserRole {
+  INSTRUCTOR
+  STUDENT
+  LEAD
+}
+
+model Audit {
+  id              Int             @id @default(autoincrement())
+  referenceNumber String          @unique
+  geofence        String
+  riderService    String
+  priorityLevel   String
+  event           String
+  feedback        String
+  engagementType  String
+  trainings       TrainingAudit[]
+  userId          Int
+  user            User            @relation(fields: [userId], references: [id])
+}
+
+model Training {
+  id          Int                 @id @default(autoincrement())
+  title       String
+  description String
+  feedback    String
+  audits      TrainingAudit[]
+  links       TrainingLink[]
+  videoLinks  TrainingVideoLink[]
+  users       UserTraining[]
+}
+
+model UserTraining {
+  id         Int      @id @default(autoincrement())
+  trainingId Int
+  training   Training @relation(fields: [trainingId], references: [id])
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, trainingId])
+}
+
+model TrainingAudit {
+  id         Int      @id @default(autoincrement())
+  auditId    Int
+  trainingId Int
+  audit      Audit    @relation(fields: [auditId], references: [id])
+  training   Training @relation(fields: [trainingId], references: [id])
+
+  @@unique([auditId, trainingId])
+}
+
+model TrainingLink {
+  id         Int      @id @default(autoincrement())
+  text       String
+  link       String
+  trainingId Int
+  training   Training @relation(fields: [trainingId], references: [id])
+}
+
+model TrainingVideoLink {
+  id         Int      @id @default(autoincrement())
+  title      String
+  url        String
+  trainingId Int
+  training   Training @relation(fields: [trainingId], references: [id])
+}
