@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { browserRouter, route, routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { createRoot } from 'react-dom/client'
 import './App.css'
 
 
@@ -14,7 +15,7 @@ type Training = {
   users: UserTraining[]
 }
 
-function App() {
+function TrainingsPage(){
   const [trainings, setTrainings] = useState<Training[]>([])
 
   useEffect(() => {
@@ -28,16 +29,27 @@ function App() {
     loadTrainings()
   })
 
-  return (
-    <h1>TeleOps Training Hub</h1>
+return <main>
+<h1>TeleOps Training Hub</h1>
 
     <section>
       {trainings.map((training) => (
+        <article>
         <h1>title: {training.title} </h1>
         <h2>description: {training.description} </h2>
         <p>feedback: {training.feedback} </p>
+        </article>
       ))}
     </section>
+  </main>
+}
+
+
+function App() {
+  return(
+  <Routes>
+    <Route path="/" element={<TrainingsPage />} />
+  </Routes>
   )
 }
 
