@@ -63,9 +63,7 @@ function CreateTrainingPage(){
             <input type="text" />
 
             <label htmlFor="">Audits</label>
-            <select name="" id="">
-                
-            </select>
+            <select name="" id=""></select>
         </form>
 
 

@@ -39,7 +39,7 @@ model Training {
   id          Int                 @id @default(autoincrement())
   title       String
   description String
-  feedback    String
+  feedback    String?
   audits      TrainingAudit[]
   links       TrainingLink[]
   videoLinks  TrainingVideoLink[]

@@ -96,6 +96,34 @@ app.get("/api/trainings/:id", async (req, res) => {
   res.json(training)
 })
 
+//new training
+app.get("/api/training/new", async (req, res) => {
+  const training = await prisma.training.create({
+    
+    data: {
+      title: req.body.title,
+      description: req.body.description,
+      feedback: req.body.feedback,
+    },
+    
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      feedback: true,
+      audits: true,
+      links: true,
+      videoLinks: true,
+      users: true,
+    }
+  })
+  
+  if(!training){
+    return res.status(404).json("error training was not able to be created")
+  } 
+  res.json(training)
+})
+
 // all audits
 app.get("/api/audits", async (req, res) => {
   const audits = await prisma.audit.findMany({
@@ -157,4 +185,3 @@ app.get("/api/audits/:id", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-

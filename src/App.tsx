@@ -16,14 +16,14 @@ type Training = {
 }
 
 function TrainingsPage(){
-  const [trainings, setTrainings] = useState<Training[]>([])
+  const [trainingsData, setTrainingsData] = useState<Training[]>([])
 
   useEffect(() => {
     async function loadTrainings(){
       const response = await fetch("http://localhost:3000/api/trainings")
 
       const data = (await response.json()) as Training[]
-      setTraining(data)
+      setTrainingsData(data)
       console.log(data)
     }
     loadTrainings()
@@ -33,7 +33,7 @@ return <main>
 <h1>TeleOps Training Hub</h1>
 
     <section>
-      {trainings.map((training) => (
+      {trainingsData.map((training) => (
         <article>
         <h1>title: {training.title} </h1>
         <h2>description: {training.description} </h2>
