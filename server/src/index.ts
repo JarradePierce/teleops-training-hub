@@ -97,7 +97,7 @@ app.get("/api/trainings/:id", async (req, res) => {
 })
 
 //new training
-app.get("/api/training/new", async (req, res) => {
+app.post("/api/training/new", async (req, res) => {
   const training = await prisma.training.create({
     
     data: {

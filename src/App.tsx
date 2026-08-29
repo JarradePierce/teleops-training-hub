@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { createRoot } from 'react-dom/client'
 import './App.css'
+import CreateTrainingPage from './CreateTrainingPage'
 
 
 type Training = {
@@ -48,7 +49,8 @@ return <main>
 function App() {
   return(
   <Routes>
-    <Route path="/" element={<TrainingsPage />} />
+    <Route path="/trainings" element={<TrainingsPage />} />
+    <Route path="/training/new" element={<CreateTrainingPage />} />
   </Routes>
   )
 }
