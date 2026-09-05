@@ -19,6 +19,9 @@ function AuditsPage(){
     })
 
     return <main>
+        <nav>
+            <a href="http://localhost:5173/trainings">Fusion Center Training Hub</a>
+        </nav>
         <h1>TeleOps Audits</h1>
 
         <section>

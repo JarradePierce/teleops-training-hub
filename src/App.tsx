@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { createRoot } from 'react-dom/client'
 import './App.css'
 import CreateTrainingPage from './CreateTrainingPage'
+import CreateAuditPage from './CreateAuditPage'
 import AuditsPage from './AuditsPage'
+import UsersPage from './UsersPage'
 
 
 type Training = {
@@ -32,6 +34,11 @@ function TrainingsPage(){
   })
 
 return <main>
+  <nav>
+    <a href="http://localhost:5173/trainings">Trainings</a>
+    <a href="http://localhost:5173/audits">Audits</a>
+    <a href="http://localhost:5173/users">Users</a>
+  </nav>
 <h1>TeleOps Training Hub</h1>
     <section>
       {trainingsData.map((training) => (
@@ -52,6 +59,8 @@ function App() {
     <Route path="/trainings" element={<TrainingsPage />} />
     <Route path="/training/new" element={<CreateTrainingPage />} />
     <Route path="/audits" element={<AuditsPage />} />
+    <Route path="/audit/new" element={<CreateAuditPage />} />
+    <Route path="/users" elemenet={<UsersPage />} />
   </Routes>
   )
 }

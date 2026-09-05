@@ -182,6 +182,44 @@ app.get("/api/audits/:id", async (req, res) => {
   res.json(audit)
 })
 
+app.post("/api/audit/new", async (req, res) => {
+  const audit = await prisma.audit.create({
+
+    data: {
+      geofence: req.body.geofence,
+      referenceNumber: req.body.referenceNumber,
+      riderService: req.body.riderService,
+      priorityLevel: req.body.priorityLevel,
+      event: req.body.event,
+      feedback: req.body.feedback,
+      engagementType: req.body.engagementType,
+      userId: Number(req.body.userId),
+    },
+
+    select: {
+      id: true,
+      referenceNumber: true,
+      geofence: true,
+      riderService: true,
+      priorityLevel: true,
+      event: true,
+      feedback: true,
+      engagementType: true,
+      trainings: true,
+      user: {
+        select: {
+          id: true,
+          username: true,
+        },
+      },
+    },
+  })
+  if(!audit){
+    return res.status(404).json("error audit was not able to be created")
+  } 
+  res.json(audit)
+})
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
