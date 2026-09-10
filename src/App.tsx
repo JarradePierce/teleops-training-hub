@@ -34,18 +34,32 @@ function TrainingsPage(){
   })
 
 return <main>
-  <nav>
-    <a href="http://localhost:5173/trainings">Trainings</a>
-    <a href="http://localhost:5173/audits">Audits</a>
-    <a href="http://localhost:5173/users">Users</a>
+  <nav class="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">
+        <a href="http://localhost:5173/trainings">Trainings</a>
+      </li>
+      <li class="breadcrumb-item" >
+        <a href="http://localhost:5173/audits">Audits</a>
+      </li>
+      <li class="breadcrumb-item" >
+        <a href="http://localhost:5173/users">Users</a>
+      </li>
+    </ol>
   </nav>
-<h1>TeleOps Training Hub</h1>
+  <button><a href="#">Create Training</a></button>
+<h1>Fusion Center Training Hub</h1>
     <section>
       {trainingsData.map((training) => (
-        <article>
-        <h1>title: {training.title} </h1>
-        <h2>description: {training.description} </h2>
-        <p>feedback: {training.feedback} </p>
+        <article class="card">
+        <h1 class="card-title">title: {training.title} </h1>
+        <p class="card-text">description: {training.description} </p>
+        <p class="card-text">feedback: {training.feedback} </p>
+          <nav>
+            <ol> 
+              <a class="card-link" href="">Training</a>
+            </ol>
+          </nav>
         </article>
       ))}
     </section>
@@ -60,7 +74,7 @@ function App() {
     <Route path="/training/new" element={<CreateTrainingPage />} />
     <Route path="/audits" element={<AuditsPage />} />
     <Route path="/audit/new" element={<CreateAuditPage />} />
-    <Route path="/users" elemenet={<UsersPage />} />
+    <Route path="/users" element={<UsersPage />} />
   </Routes>
   )
 }

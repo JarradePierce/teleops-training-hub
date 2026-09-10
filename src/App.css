@@ -1,0 +1,19 @@
+.card-text{
+    margin-top: 1em;
+    padding-left: 1em;
+}
+
+.card-title{
+    padding-left: 15px;
+}
+.card{
+    margin-top: 1em;
+}
+
+a{
+    text-decoration: none;
+}
+
+.breadcrumb-item.active a{
+    color: #7ADCB4;
+}

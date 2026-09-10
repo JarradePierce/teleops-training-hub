@@ -59,10 +59,19 @@ function CreateAuditPage(){
     }
 
     return <main>
-        <nav>
-            <a href="http://localhost:5173"> Fusion Center Training Hub 
-            </a>
-        </nav>
+    <nav class="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a href="http://localhost:5173/trainings">Trainings</a>
+            </li>
+            <li class="breadcrumb-item active" >
+                <a href="http://localhost:5173/audits">Audits</a>
+            </li>
+            <li class="breadcrumb-item active" >
+                <a href="http://localhost:5173/users">Users</a>
+            </li>
+        </ol>
+    </nav>
 
         <form onSubmit={hanleSubmit}>
             <h1>Create Audit</h1>

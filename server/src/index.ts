@@ -29,6 +29,9 @@ app.get("/api/users", async (req, res) => {
       trainings: true,
     },
   })
+  if(!users){
+    return res.status(404).json({error: "users not found"})
+  }
   res.json(users)
 })
 
