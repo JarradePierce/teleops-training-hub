@@ -1,19 +1,85 @@
 .card-text{
-    margin-top: 1em;
-    padding-left: 1em;
+    padding: .5em;
+    color: #9eada7;
 }
 
 .card-title{
-    padding-left: 15px;
+    color: #fff;
 }
 .card{
-    margin-top: 1em;
+    margin-top: .5em;
+    padding: .5em;
+}
+
+p{
+    font-size: 14px;
 }
 
 a{
     text-decoration: none;
 }
 
-.breadcrumb-item.active a{
-    color: #7ADCB4;
+.navbar {
+  --bs-navbar-active-color: #2ca273;
+  background-color: #000;
+  max-width: 100%;
+}
+
+.primary-nav{
+    background-color: #0a0a0a !important;
+}
+
+.create-audit-button{
+    background-color: #31b782;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.page-container{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background-color: #111614;
+}
+
+.index-card{
+    background-color: #1a211f;
+    margin-bottom: 20px;
+}
+
+.heading-intro-text{
+    
+}
+.intro-info-container{
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.index-card-title{
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+.audits-priority-level{
+    min-width: 45px;
+    padding: 0.3rem 0.75rem;
+    margin-left: 1rem;
+
+    border: 1px solid #8e0b0b;
+    border-radius: 100px;
+    background-color: #3a201e;
+    font-weight: bold;
+}
+
+.vertical-divider{
+    line-height: 2.5;
+}
+
+.index-card-footer-links{
+    color: #2ca273;
+}
+
+.card-meta-data-text{
+    color: #e9e5e5;
 }

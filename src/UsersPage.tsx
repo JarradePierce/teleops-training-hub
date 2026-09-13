@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 type Users = {
     id: number,
@@ -45,7 +46,7 @@ function UsersPage(){
         <section>
             {usersData.map((user) => (
                 <article class="card" key={user.id}>
-                    <h3 class="card-title">Name: {user.username}</h3>
+                   <Link to={`/users/${user.id}`}><h3 class="card-title">Name: {user.username}</h3></Link>
                     <p class="card-text">Role: {user.role} </p>
                     {user.audits.map((audit, index) => (
                         <p class="card-text" key={audit.id}>{audit.title}</p>
